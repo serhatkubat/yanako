@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO-friendly title reflecting the new concept and location -->
+    <title>Yanako Karavan Çiftliği: Zamanın Yavaşladığı, Urla'da Doğayla İç İçe Üyelik</title>
+    <!-- Tailwind CSS CDN for modern and responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for clean, readable typography (Aposto-like sans-serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom font application */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #F8F5F0; /* Softer, warmer off-white/cream background to match Instagram */
+            color: #4A4A4A; /* Slightly softer dark gray for text */
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A0A0A0; /* Softer scrollbar thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #707070;
+        }
+        /* Styles for the image background */
+        .image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Place behind content */
+        }
+        .image-background img {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Ensure image covers the entire container */
+        }
+        /* Overlay for image to ensure text readability and add filter effect */
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            /* Opaklık düşürüldü ve filtre ayarları daha belirgin arka plan için ayarlandı */
+            background-color: rgba(0, 0, 0, 0.2); /* Daha düşük opaklık */
+            filter: sepia(0.1) saturate(1.05) brightness(0.98); /* Daha az filtre, daha belirgin görsel */
+        }
+
+        /* Custom colors inspired by Instagram posts / Aposto-like aesthetic */
+        /* Header arka planı için yeni RGB değeri uygulandı */
+        .bg-yanako-cream { background-color: rgb(251,243,220); }
+        .text-yanako-dark { color: #4A4A4A; } /* Main text color */
+        .text-yanako-green-dark { color: #537A3C; } /* Darker green for headings */
+        .text-yanako-green-main { color: #6A994E; } /* Main green for logo/links */
+        .bg-yanako-green-button { background-color: #83B367; } /* Lighter green for buttons */
+        .hover\:bg-yanako-green-dark:hover { background-color: #6A994E; }
+        .bg-yanako-orange-cta { background-color: #C48D52; } /* CTA button color, inspired by Instagram accent */
+        .hover\:bg-yanako-orange-dark:hover { background-color: #A36F3F; } /* Darker orange for CTA hover */
+
+        /* Icon background colors from the 'Neler Var?' image */
+        /* Bu renkler artık ikonların arka planı için kullanılmayacak, ikon görselleri kendi renklerini taşıyacak */
+        .bg-icon-orange { background-color: #E0B69B; }
+        .bg-icon-teal { background-color: #AECBD6; }
+        .bg-icon-green { background-color: #C6D8B7; }
+        .bg-icon-grey { background-color: #D2CFCF; }
+
+        /* Icon foreground color (stroke/fill) to contrast with backgrounds */
+        .text-icon-dark { color: #5D4037; } /* A consistent dark brown for icons */
+
+        /* Simple CSS Animations (for a dynamic feel) */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceOnce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
+        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+        .animate-bounce-once { animation: bounceOnce 2s ease-out; } /* Removed infinite to avoid annoyance */
+
+        /* Add delays for staggered animations */
+        .animate-fade-in-delay-1 { animation-delay: 0.2s; }
+        .animate-fade-in-delay-2 { animation-delay: 0.4s; }
+        .animate-fade-in-delay-3 { animation-delay: 0.6s; }
+        .animate-fade-in-delay-4 { animation-delay: 0.8s; }
+        .animate-fade-in-delay-5 { animation-delay: 1.0s; }
+        .animate-fade-in-delay-6 { animation-delay: 1.2s; }
+        .animate-fade-in-delay-7 { animation-delay: 1.4s; }
+        .animate-fade-in-delay-8 { animation-delay: 1.6s; }
+        .animate-fade-in-delay-9 { animation-delay: 1.8s; }
+        .animate-fade-in-delay-10 { animation-delay: 2.0s; } /* New delay for the 9th feature */
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-yanako-cream backdrop-blur-sm py-4 px-6 md:px-12 fixed w-full z-10 top-0 transition-all duration-300">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <!-- Yanako Logo Only -->
+            <a href="#" class="flex items-center">
+                <!-- Logo boyutu h-7 olarak güncellendi -->
+                <img src="images/yanako.jpeg" alt="Yanako Karavan Çiftliği Logo" class="h-7">
+            </a>
+            <!-- Instagram Link in Header - Using actual Instagram logo -->
+            <a href="https://instagram.com/yanako.kuscular" target="_blank" rel="noopener noreferrer"
+               class="bg-yanako-green-button hover:bg-yanako-green-dark text-white font-medium py-2 px-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out flex items-center space-x-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="h-5 w-5">
+                <span>Instagram Hesabımız</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Image Background -->
+    <section class="relative h-screen flex items-center justify-center text-white">
+        <!-- Image Background Element -->
+        <div class="image-background">
+            <!-- Arka plan görseli: images/arkaplan.jpeg olarak güncellendi -->
+            <img src="images/arkaplan.jpeg" alt="Yanako Karavan Çiftliği Zeytin Ağaçları">
+        </div>
+        <!-- Metin okunabilirliği ve ince bir renk filtresi için katman -->
+        <div class="image-overlay"></div>
+
+        <div class="relative z-10 text-center px-4 md:px-8 max-w-4xl mx-auto">
+            <!-- Başlık güncellendi -->
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6 drop-shadow-lg animate-fade-in-down">
+                Yanako Mihalyo Efendi'nin Bağında
+            </h1>
+            <p class="text-xl md:text-2xl font-normal leading-relaxed mb-8 drop-shadow-md animate-fade-in-up">
+                Yanako Mihalyo Efendi'nin yüzlerce yıllık zeytin ağaçlarıyla çevrili bağı üye karavanlara ev sahipliği yapıyor. Zamanın yavaşladığı bu yerde doğayla iç içe bir yaşama adım atmak isteyenleri bu eşsiz manzaranın içerisine bekliyoruz. Peyzaj düzenlemesi süresince avantajlı fiyatlardan yararlanma fırsatını kaçırmayın.
+            </p>
+            <!-- Call to Action Button - Emphasizing Membership and Instagram for details -->
+            <a href="https://instagram.com/yanako.kuscular" target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-yanako-orange-cta hover:bg-yanako-orange-dark text-white text-xl md:text-2xl font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105 animate-bounce-once">
+                Yanako Üyesi Olun ve Doğayla Buluşun! Detaylar Instagram'da
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section - Updated for Membership concept -->
+    <section class="py-16 md:py-24 bg-yanako-cream px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-yanako-green-dark mb-8 animate-fade-in">
+                Yanako Deneyimi: Şehirden Uzak, Toprağa Yakın Bir Yaşam Hayali
+            </h2>
+            <p class="text-lg text-yanako-dark leading-relaxed animate-fade-in-delay-1">
+                Yanako Karavan Çiftliği, bir konaklama yerinden çok daha fazlası; o, bir yaşam biçimi.
+                Burada, kendi küçük kaçış noktanıza sahip olmak isteyen karavan sahipleri ve doğa tutkunları için özel bir üyelik sistemi sunuyoruz.
+                Yanako üyeleri, çiftliğimizde sınırsız konaklama imkanına sahip olurken, aynı zamanda Urla'nın eşsiz tarım ve doğal güzelliklerinin tadını çıkarıyor,
+                şehir hayatının stresinden uzaklaşarak huzuru buluyor. Burası, yıldızların altında uyuyup, toprakla iç içe yeni anılar biriktireceğiniz bir sığınak.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features/Benefits Section - Renamed and updated for membership benefits -->
+    <section class="py-16 md:py-24 bg-yanako-cream px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-yanako-green-dark text-center mb-12 animate-fade-in">
+                Yanako Üyeliğiyle Keşfedeceğiniz Ayrıcalıklar
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <!-- Elektrik -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-2">
+                    <div class="bg-icon-orange p-4 rounded-full mb-4">
+                        <img src="images/icon_elektrik.png" alt="Elektrik İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Elektrik</h3>
+                    <p class="text-yanako-dark">Kişisel sayaç ile kesintisiz elektrik erişimi.</p>
+                </div>
+                <!-- Su ve Gri Su Hattı -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-3">
+                    <div class="bg-icon-teal p-4 rounded-full mb-4">
+                        <img src="images/icon_su.png" alt="Su ve Gri Su Hattı İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Su ve Gri Su Hattı</h3>
+                    <p class="text-yanako-dark">Kişisel sayaç ve artezyen desteği ile konfor.</p>
+                </div>
+                <!-- Duş & Tuvalet -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-4">
+                    <div class="bg-icon-green p-4 rounded-full mb-4">
+                        <img src="images/icon_dus_tuvalet.png" alt="Duş & Tuvalet İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Duş & Tuvalet</h3>
+                    <p class="text-yanako-dark">Hijyenik ve modern tesislerde rahatlayın.</p>
+                </div>
+                <!-- 100 - 150 m² Parseller -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-5">
+                    <div class="bg-icon-grey p-4 rounded-full mb-4">
+                        <img src="images/icon_parsel.png" alt="Parsel İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Geniş Parseller</h3>
+                    <p class="text-yanako-dark">Karavanınız için 100-150 m² kişisel alanlar.</p>
+                </div>
+                <!-- Kişiye Özel Tarım Alanı -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-6">
+                    <div class="bg-icon-green p-4 rounded-full mb-4">
+                        <img src="images/icon_tarim.png" alt="Tarım Alanı İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Kişiye Özel Tarım Alanı</h3>
+                    <p class="text-yanako-dark">Kendi sebze ve meyvelerinizi yetiştirme imkanı.</p>
+                </div>
+                <!-- Buzdolabı ve Derin Dondurucu -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-7">
+                    <div class="bg-icon-grey p-4 rounded-full mb-4">
+                        <img src="images/icon_buzdolabi.png" alt="Buzdolabı İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Buzdolabı ve Derin Dondurucu</h3>
+                    <p class="text-yanako-dark">Yiyeceklerinizi taze tutmak için ortak kullanım.</p>
+                </div>
+                <!-- Paket Servis Hizmetleri -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-8">
+                    <div class="bg-icon-orange p-4 rounded-full mb-4">
+                        <img src="images/icon_paket_servis.png" alt="Paket Servis İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Paket Servis Hizmetleri</h3>
+                    <p class="text-yanako-dark">Market ve restoranlardan kolayca sipariş verin.</p>
+                </div>
+                <!-- Çarşıya Yakın Konum -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-9">
+                    <div class="bg-icon-orange p-4 rounded-full mb-4">
+                        <img src="images/icon_carsi.png" alt="Çarşı İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Çarşıya Yakın Konum</h3>
+                    <p class="text-yanako-dark">Günlük ihtiyaçlarınız için çarşıya kolay erişim.</p>
+                </div>
+                <!-- Koy & Plajlara Yakın Konum -->
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center transition-transform transform hover:scale-105 animate-fade-in-delay-10">
+                    <div class="bg-icon-teal p-4 rounded-full mb-4">
+                        <img src="images/icon_plaj.png" alt="Plaj İkonu" class="w-16 h-16">
+                    </div>
+                    <h3 class="text-xl font-semibold text-yanako-green-main mb-2">Koy & Plajlara Yakın</h3>
+                    <p class="text-yanako-dark">Urla'nın eşsiz koylarına ve plajlarına kolay ulaşım.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 md:py-24 bg-yanako-cream px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-yanako-green-dark text-center mb-12 animate-fade-in">
+                Yanako Karavan Çiftliği'nden Kareler
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Image 1: images/yakinda.jpeg -->
+                <div class="relative group rounded-xl overflow-hidden shadow-md transition-transform transform hover:scale-105 animate-fade-in-delay-6">
+                    <img src="images/yakinda.jpeg" alt="Yanako Karavan Çiftliği Yakında" class="w-full h-auto object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Çok Yakında!</p>
+                    </div>
+                </div>
+                <!-- Image 2: images/manzara.jpeg -->
+                <div class="relative group rounded-xl overflow-hidden shadow-md transition-transform transform hover:scale-105 animate-fade-in-delay-7">
+                    <img src="images/manzara.jpeg" alt="Yanako Karavan Çiftliği Manzarası" class="w-full h-auto object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Doğayla İç İçe</p>
+                    </div>
+                </div>
+                <!-- Image 3: images/uyelik.jpeg -->
+                <div class="relative group rounded-xl overflow-hidden shadow-md transition-transform transform hover:scale-105 animate-fade-in-delay-8">
+                    <img src="images/uyelik.jpeg" alt="Yanako Üyelik Detayları" class="w-full h-auto object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Ayrıcalıklı Üyelik</p>
+                    </div>
+                </div>
+                <!-- Image 4: images/cevresi.jpeg -->
+                <div class="relative group rounded-xl overflow-hidden shadow-md transition-transform transform hover:scale-105 animate-fade-in-delay-9">
+                    <img src="images/cevresi.jpeg" alt="Yanako Çevresi Harita" class="w-full h-auto object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-lg font-semibold">Urla Keşif Rehberi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="https://instagram.com/yanako.kuscular" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-yanako-green-button hover:bg-yanako-green-dark text-white font-medium py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                   Daha Fazla Görsel ve Üyelik Detayı İçin Instagram'a Gidin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <!-- Footer Logo/Name -->
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <img src="images/yanako.jpeg" alt="Yanako Karavan Çiftliği Logo" class="h-16 rounded-full">
+                <span class="text-lg font-bold">Yanako Karavan Çiftliği</span>
+            </div>
+            <!-- Copyright -->
+            <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                © 2025 Yanako Karavan Çiftliği. Tüm Hakları Saklıdır.
+            </p>
+            <!-- Social Media Icons -->
+            <div class="flex space-x-4">
+                <a href="https://instagram.com/yanako.kuscular" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" class="h-6 w-6">
+                </a>
+                <!-- WhatsApp Icon - Optional, add if you have a WhatsApp contact -->
+                <a href="https://wa.me/05556210598" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M.057 20.424l1.41-4.143A9.782 9.782 0 0110.15 1.5c5.319 0 9.65 4.331 9.65 9.65 0 1.77-.478 3.42-1.303 4.85l1.41 4.143-4.223-1.385a9.697 9.697 0 01-4.707 1.229c-5.319 0-9.65-4.331-9.65-9.65 0-1.77.478-3.42 1.303-4.85zM5.992 5.093A7.546 7.546 0 002.5 10.15c0 4.142 3.358 7.5 7.5 7.5 1.488 0 2.87-.438 4.043-1.229l2.776.907-1.096-3.21a7.536 7.536 0 001.815-4.04c0-4.142-3.358-7.5-7.5-7.5zM12 7.5c.348 0 .68.042 1.002.126.322.083.633.203.926.356l.32.164.736-.889c.137-.165.34-.265.55-.265.209 0 .412.1.55.265l1.247 1.503c.137.165.206.375.206.586 0 .21-.069.42-.206.586l-.736.889.32.164c.293.153.604.273.926.356.322.084.654.126 1.002.126h.25v2.5c0 .348-.14.658-.396.93-.257.272-.61.42-1 .42-.39 0-.743-.148-1-.42-.257-.272-.396-.582-.396-.93v-.25c0-.137-.052-.27-.145-.37-.093-.1-.226-.145-.37-.145h-2.5c-.144 0-.277.045-.37.145-.093.1-.145.233-.145.37v.25c0 .348-.14.658-.396.93-.257.272-.61.42-1 .42-.39 0-.743-.148-1-.42-.257-.272-.396-.582-.396-.93v-2.5c0-.137-.052-.27-.145-.37-.093-.1-.226-.145-.37-.145h-.25c-.348 0-.68-.042-1.002-.126-.322-.083-.633-.203-.926-.356l-.32-.164-.736.889c-.137-.165-.34-.265-.55-.265-.209 0-.412-.1-.55-.265L5.753 9.003c-.137-.165-.206-.375-.206-.586 0-.21.069-.42.206-.586l.736-.889-.32-.164c-.293-.153-.604-.273-.926-.356C5.06 7.542 4.728 7.5 4.38 7.5h-.25c-.348 0-.658.14-.93.396-.272.257-.42.61-.42 1v.25c0 .137.045.27.145.37.1.093.233.145.37.145h2.5c.137 0 .27-.052.37-.145.1-.093.145-.226.145-.37v-.25c0-.348.14-.658.396.93-.257.272-.61.42-1 .42-.39 0-.743.148 1 .42.257.272.396-.582.396-.93v2.5c0 .137.052-.27.145-.37-.093-.1-.226-.145-.37-.145h-.25c.348 0-.68-.042-1.002-.126-.322-.083-.633-.203-.926-.356L12 7.5z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Optional JavaScript for image fade-in or other effects
+        // No video playback rate needed as it's an image now.
+    </script>
+</body>
+</html>
